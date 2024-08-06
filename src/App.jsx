@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import Home from "../assets/pages/Home";
-import About from "../assets/pages/About";
-import Vans from "../assets/pages/Vans";
-import VanDetail from "../assets/pages/VanDetail";
+import Home from "../pages/Home";
+import About from "../pages/About";
+import Vans from "../pages/Vans";
+import VanDetail from "../pages/VanDetail";
 import "../server";
 
 function App() {
