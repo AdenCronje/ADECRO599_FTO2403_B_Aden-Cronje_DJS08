@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from "../assets/pages/Home";
 import About from "../assets/pages/About";
 import Vans from "../assets/pages/Vans";
+import VanDetail from "../assets/pages/VanDetail";
 import "../server";
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/vans" element={<Vans />} />
+        <Route path="/vans/:id" element={<VanDetail />} />
       </Routes>
     </BrowserRouter>
   );
