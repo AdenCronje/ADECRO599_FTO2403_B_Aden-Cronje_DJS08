@@ -13,12 +13,12 @@ export default function HostVanDetail() {
     color: "#161616",
   };
 
-//   Fetching van details
+  //   Fetching van details
   useEffect(() => {
     fetch(`/api/host/vans/${id}`)
       .then((res) => res.json())
       .then((data) => setCurrentVan(data.vans));
-  }, []);
+  }, [id]);
 
   if (!currentVan) {
     return <h1>Loading...</h1>;
@@ -30,7 +30,7 @@ export default function HostVanDetail() {
         &larr; <span>Back to all vans</span>
       </Link>
 
-{/* Displays van image, name and pricing */}
+      {/* Displays van image, name and pricing */}
       <div className="host-van-detail-layout-container">
         <div className="host-van-detail">
           <img src={currentVan.imageUrl} />
@@ -43,7 +43,7 @@ export default function HostVanDetail() {
           </div>
         </div>
 
-{/* Nav bar links and styling */}
+        {/* Nav bar links and styling */}
         <nav className="host-van-detail-nav">
           {" "}
           <NavLink
@@ -67,7 +67,7 @@ export default function HostVanDetail() {
           </NavLink>
         </nav>
 
-        <Outlet />
+        <Outlet context={{ currentVan }} />
       </div>
     </section>
   );
