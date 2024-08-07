@@ -11,7 +11,7 @@ export default function HostLayout() {
 
   return (
     <>
-    {/* Linking routes to host navbar section */}
+      {/* Linking routes to host navbar section */}
       <nav className="host-nav">
         <NavLink
           to="/host"
@@ -29,7 +29,7 @@ export default function HostLayout() {
         </NavLink>
 
         <NavLink
-          to="vans"
+          to="hostVans"
           style={({ isActive }) => (isActive ? activeStyles : null)}
         >
           Vans
