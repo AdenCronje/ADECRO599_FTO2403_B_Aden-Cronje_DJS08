@@ -25,12 +25,15 @@ function App() {
           <Route path="vans/:id" element={<VanDetail />} />
 
           <Route>
-            <Route path="host" element={<HostLayout />} />
-            <Route index element={<Dashboard />} />
-            <Route path="income" element={<Income />} />
-            <Route path="reviews" element={<Reviews />} />
-            <Route path="vans" element={<HostVans />} />
-            <Route path="vans/:id" element={<HostVanDetail />} />
+            <Route path="host" element={<HostLayout />}>
+              <Route index element={<Dashboard />} />
+              <Route path="income" element={<Income />} />
+              <Route path="reviews" element={<Reviews />} />
+              <Route path="vans" element={<HostVans />} />
+              <Route path="vans/:id" element={<HostVanDetail />} />
+              <Route />
+              <Route />
+            </Route>
           </Route>
         </Route>
       </Routes>
