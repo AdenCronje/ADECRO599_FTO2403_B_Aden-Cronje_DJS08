@@ -10,8 +10,8 @@ import Income from "../pages/Host/Income";
 import Reviews from "../pages/Host/Reviews";
 import HostVans from "../pages/Host/HostVans";
 import HostVanDetail from "../pages/Host/HostVanDetail";
-import Layout from "./components/Layout";
-import HostLayout from "./components/HostLayout";
+import Layout from "../src/components/Layout";
+import HostLayout from "../src/components/HostLayout";
 import "../server";
 
 function App() {
