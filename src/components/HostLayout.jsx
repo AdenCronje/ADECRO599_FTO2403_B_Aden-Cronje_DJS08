@@ -14,7 +14,7 @@ export default function HostLayout() {
       {/* Linking routes to host navbar section */}
       <nav className="host-nav">
         <NavLink
-          to="/host"
+          to="."
           end
           style={({ isActive }) => (isActive ? activeStyles : null)}
         >
