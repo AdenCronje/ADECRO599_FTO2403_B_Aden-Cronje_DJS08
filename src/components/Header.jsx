@@ -2,6 +2,7 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import imageUrl from "/assets/images/avatar-icon.png";
 
+// Displaying all header links styling
 export default function Header() {
   const activeStyles = {
     fontWeight: "bold",
