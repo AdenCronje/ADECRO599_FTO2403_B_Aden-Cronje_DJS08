@@ -2,10 +2,13 @@ import React from "react";
 import { Outlet, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { getHostVans } from "../../api";
 
 export default function HostVanDetail() {
   const { id } = useParams();
   const [currentVan, setCurrentVan] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const activeStyles = {
     fontWeight: "bold",
@@ -15,13 +18,27 @@ export default function HostVanDetail() {
 
   //   Fetching van details
   useEffect(() => {
-    fetch(`/api/host/vans/${id}`)
-      .then((res) => res.json())
-      .then((data) => setCurrentVan(data.vans));
+    async function loadVans() {
+      setLoading(true);
+      try {
+        const data = await getHostVans(id);
+        setCurrentVan(data);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadVans();
   }, [id]);
 
   if (!currentVan) {
     return <h1>Loading...</h1>;
+  }
+
+  if (error) {
+    return <h1>There was an error: {error.message}</h1>;
   }
 
   return (

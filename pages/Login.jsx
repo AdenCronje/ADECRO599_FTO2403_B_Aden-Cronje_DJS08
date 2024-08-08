@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 
 // Makes sure our page inputs are empty after initial load in
@@ -8,6 +8,9 @@ export default function Login() {
     email: "",
     password: "",
   });
+
+  const loction = useLocation();
+  console.log(location);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -25,6 +28,9 @@ export default function Login() {
   //   Displaying form elements
   return (
     <div className="login-container">
+      {location.state?.message && (
+        <h3 className="login-first">{location.state.message}</h3>
+      )}
       <h1>Sign in to your account</h1>
       <form onSubmit={handleSubmit} className="login-form">
         <input
