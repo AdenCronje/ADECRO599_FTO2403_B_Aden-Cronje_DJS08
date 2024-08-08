@@ -13,7 +13,6 @@ export default function Login() {
   const [error, setError] = useState(null);
   const location = useLocation();
 
-  const loction = useLocation();
   const navigate = useNavigate();
 
   //   Dealing with submit credentials
@@ -24,12 +23,13 @@ export default function Login() {
       .then((data) => {
         console.log(data);
         setError(null);
+        navigate("/host");
+        console.log("I am, navigating!");
       })
       //   Checking for any errors in inputs
       .catch((err) => {
         setError(err);
         localStorage.setItem("loggedin", true);
-        navigate("/host");
       })
       .finally(() => {
         setStatus("idle");
