@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
-import { loginUser } from "../api";
+import { loginUser } from "../../api";
 
 // Makes sure our page inputs are empty after initial load in
 export default function Login() {
@@ -25,11 +25,11 @@ export default function Login() {
         console.log(data);
         setError(null);
       })
-    //   Checking for any errors in inputs
+      //   Checking for any errors in inputs
       .catch((err) => {
         setError(err);
         localStorage.setItem("loggedin", true);
-        navigate("host");
+        navigate("/host");
       })
       .finally(() => {
         setStatus("idle");
